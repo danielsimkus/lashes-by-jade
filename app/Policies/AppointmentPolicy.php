@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\User;
-use App\Product;
+use App\Appointment;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProductPolicy
+class AppointmentPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ProductPolicy
      * Determine whether the user can view the product.
      *
      * @param  \App\User  $user
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return mixed
      */
-    public function view(?User $user, Product $product)
+    public function view(?User $user, Appointment $product)
     {
         //
     }
@@ -48,10 +48,10 @@ class ProductPolicy
      * Determine whether the user can update the product.
      *
      * @param  \App\User  $user
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return mixed
      */
-    public function update(User $user, Product $product)
+    public function update(User $user, Appointment $product)
     {
         return ( $user->id === $product->user->id );
     }
@@ -60,10 +60,10 @@ class ProductPolicy
      * Determine whether the user can delete the product.
      *
      * @param  \App\User  $user
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return mixed
      */
-    public function delete(User $user, Product $product)
+    public function delete(User $user, Appointment $product)
     {
         //
     }
@@ -72,10 +72,10 @@ class ProductPolicy
      * Determine whether the user can restore the product.
      *
      * @param  \App\User  $user
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return mixed
      */
-    public function restore(User $user, Product $product)
+    public function restore(User $user, Appointment $product)
     {
         //
     }
@@ -84,10 +84,10 @@ class ProductPolicy
      * Determine whether the user can permanently delete the product.
      *
      * @param  \App\User  $user
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return mixed
      */
-    public function forceDelete(User $user, Product $product)
+    public function forceDelete(User $user, Appointment $product)
     {
         //
     }

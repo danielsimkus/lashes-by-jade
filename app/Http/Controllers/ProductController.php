@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Appointment;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -40,20 +40,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create', Product::class);
+        $this->authorize('create', Appointment::class);
         $params = $request->validate($this->validationRules);
 
          $params['user_id'] = auth()->user()->id;
-        return redirect(tap(new Product($params))->save()->path());
+        return redirect(tap(new Appointment($params))->save()->path());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Appointment $product)
     {
         return view('product.show', compact('product'));
     }
@@ -61,10 +61,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Appointment $product)
     {
         //
     }
@@ -73,10 +73,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Appointment $product)
     {
         $this->authorize('update', $product);
         $product->update($request->validate($this->validationRules));
@@ -86,10 +86,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Appointment  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Appointment $product)
     {
         //
     }

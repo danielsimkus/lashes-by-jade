@@ -4,9 +4,9 @@
 
 use App\User;
 use Faker\Generator as Faker;
-use App\Product;
+use App\Appointment;
 
-$factory->define(Product::class, function (Faker $faker) {
+$factory->define(Appointment::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence,
         'description' => $faker->sentence,

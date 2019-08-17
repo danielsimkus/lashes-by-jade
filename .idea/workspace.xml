@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="PHPUnitRunConfigurationType" name="ProductsTest.a_user_can_create_a_product" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="16003225-447b-4823-b27b-aa5adf01b9e1" name="Default Changelist" comment="" />
+    <list default="true" id="16003225-447b-4823-b27b-aa5adf01b9e1" name="Default Changelist" comment="- Added more tests&#10;- Created a ProductPolicy&#10;- Users can create Products&#10;- Added some views for viewing a Project">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/ProductPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/AppointmentPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Appointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_11_183326_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_11_183326_create_appointments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ProductsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/AppointmentsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Setup/ProductTestFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Setup/AppointmentTestFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ProductTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/AppointmentTest.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +49,9 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="TddStore" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Remote Homestead PHP 7.3">
     <include_path>
@@ -118,15 +140,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1PHP1edFqPqJE4L8p3jupyFDRR0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Setup" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/migrations" />
       <recent name="$PROJECT_DIR$/tests/Setup" />
       <recent name="$PROJECT_DIR$/tests/Unit" />
     </key>
@@ -143,45 +169,46 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.ProductTest.can_be_saved">
-    <configuration name="ExampleTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\ExampleTest" file="$PROJECT_DIR$/tests/Unit/ProductTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.AppointmentsTest.a_appointment_can_be_viewed_by_anyone">
+    <configuration name="AppointmentsTest.a_appointment_can_be_viewed_by_anyone" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\AppointmentsTest" directory="$PROJECT_DIR$/tests" file="$PROJECT_DIR$/tests/Feature/AppointmentsTest.php" method="a_appointment_can_be_viewed_by_anyone" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ProductTest.a_product_can_be_saved" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\ProductTest" file="$PROJECT_DIR$/tests/Unit/ProductTest.php" method="a_product_can_be_saved" scope="Method" />
+    <configuration name="ProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ProductTest" file="$PROJECT_DIR$/tests/Unit/AppointmentTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ProductTest.can_be_saved" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\ProductTest" file="$PROJECT_DIR$/tests/Unit/ProductTest.php" method="can_be_saved" scope="Method" />
+    <configuration name="ProductsTest.a_guest_cannot_create_a_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ProductsTest" file="$PROJECT_DIR$/tests/Feature/AppointmentsTest.php" method="a_guest_cannot_create_a_product" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ProductsTest.a_product_can_be_viewed" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ProductsTest" file="$PROJECT_DIR$/tests/Feature/ProductsTest.php" method="a_product_can_be_viewed" scope="Method" />
+    <configuration name="ProductsTest.a_user_can_create_a_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ProductsTest" file="$PROJECT_DIR$/tests/Feature/AppointmentsTest.php" method="a_user_can_create_a_product" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="TestCase.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tests/TestCase.php">
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/tests" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="PHPUnit.phpunit.xml" />
-      <item itemvalue="PHP Script.TestCase.php" />
-      <item itemvalue="PHPUnit.ExampleTest (1)" />
-      <item itemvalue="PHPUnit.ProductTest.a_product_can_be_saved" />
-      <item itemvalue="PHPUnit.ProductTest.can_be_saved" />
-      <item itemvalue="PHPUnit.ProductsTest.a_product_can_be_viewed" />
+      <item itemvalue="PHPUnit.tests" />
+      <item itemvalue="PHPUnit.ProductsTest.a_user_can_create_a_product" />
+      <item itemvalue="PHPUnit.ProductTest" />
+      <item itemvalue="PHPUnit.ProductsTest.a_guest_cannot_create_a_product" />
+      <item itemvalue="PHPUnit.AppointmentsTest.a_appointment_can_be_viewed_by_anyone" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ProductTest.can_be_saved" />
-        <item itemvalue="PHPUnit.ProductsTest.a_product_can_be_viewed" />
-        <item itemvalue="PHPUnit.ProductTest.a_product_can_be_saved" />
-        <item itemvalue="PHPUnit.ExampleTest (1)" />
-        <item itemvalue="PHP Script.TestCase.php" />
+        <item itemvalue="PHPUnit.AppointmentsTest.a_appointment_can_be_viewed_by_anyone" />
+        <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.ProductsTest.a_user_can_create_a_product" />
+        <item itemvalue="PHPUnit.ProductsTest.a_guest_cannot_create_a_product" />
+        <item itemvalue="PHPUnit.ProductTest" />
       </list>
     </recent_temporary>
   </component>
@@ -197,11 +224,39 @@
       <updated>1564524886692</updated>
       <workItem from="1564524887766" duration="14332000" />
       <workItem from="1565527672256" duration="15000" />
-      <workItem from="1565527837406" duration="11414000" />
+      <workItem from="1565527837406" duration="11973000" />
+      <workItem from="1566023105322" duration="12143000" />
     </task>
+    <task id="LOCAL-00001" summary="- Added more tests&#10;- Created a ProductPolicy&#10;- Users can create Products&#10;- Added some views for viewing a Project">
+      <created>1566043162443</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1566043162443</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="- Added more tests&#10;- Created a ProductPolicy&#10;- Users can create Products&#10;- Added some views for viewing a Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added more tests&#10;- Created a ProductPolicy&#10;- Users can create Products&#10;- Added some views for viewing a Project" />
   </component>
 </project>

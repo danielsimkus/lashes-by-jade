@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\ProductController;
-use App\Policies\ProductPolicy;
-use App\Product;
+use App\Http\Controllers\AppointmentController;
+use App\Policies\AppointmentPolicy;
+use App\Appointment;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,7 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Product::class => ProductPolicy::class
+        Appointment::class => AppointmentPolicy::class
     ];
 
     /**

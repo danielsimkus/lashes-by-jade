@@ -4,16 +4,16 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Facades\Tests\Setup\ProductTestFactory;
+use Facades\Tests\Setup\AppointmentTestFactory;
 
-class ProductTest extends TestCase
+class AppointmentTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
     public function it_can_be_saved()
     {
-        $product = ProductTestFactory::create();
+        $product = AppointmentTestFactory::create();
         $this->assertDatabaseHas('products',
             [
                 'name' => $product->name,
@@ -26,8 +26,8 @@ class ProductTest extends TestCase
     /** @test */
     public function it_can_be_updated()
     {
-        $product = ProductTestFactory::create();
-        $newData = ProductTestFactory::raw();
+        $product = AppointmentTestFactory::create();
+        $newData = AppointmentTestFactory::raw();
         $product->name = $newData['name'];
         $product->description = $newData['description'];
         $product->save();
