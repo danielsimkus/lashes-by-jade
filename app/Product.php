@@ -11,6 +11,11 @@ class Product extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function path()
+    {
+        return '/products/' . $this->id;
     }
 }

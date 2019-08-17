@@ -3,7 +3,7 @@
 namespace Tests\Setup;
 use App\User;
 
-class ProductTestFactory extends TestFactory {
+class UserTestFactory extends TestFactory {
 
     protected $model = User::class;
 
