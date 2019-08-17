@@ -13,12 +13,13 @@ class AppointmentTest extends TestCase
     /** @test */
     public function it_can_be_saved()
     {
-        $product = AppointmentTestFactory::create();
-        $this->assertDatabaseHas('products',
+        $appointment = AppointmentTestFactory::create();
+        $this->assertDatabaseHas('appointments',
             [
-                'name' => $product->name,
-                'description' => $product->description,
-                'user_id' => $product->user_id,
+                'date_starts' => $appointment->date_starts,
+                'date_ends' => $appointment->date_ends,
+                'product_id' => $appointment->product_id,
+                'user_id' => $appointment->user_id,
             ]
         );
     }
@@ -26,20 +27,22 @@ class AppointmentTest extends TestCase
     /** @test */
     public function it_can_be_updated()
     {
-        $product = AppointmentTestFactory::create();
+        $appointment = AppointmentTestFactory::create();
         $newData = AppointmentTestFactory::raw();
-        $product->name = $newData['name'];
-        $product->description = $newData['description'];
-        $product->save();
+        $appointment->date_starts = $newData['date_starts'];
+        $appointment->date_ends = $newData['date_ends'];
+        $appointment->product_id = $newData['product_id'];
+        $appointment->save();
         $this->assertDatabaseHas('products', [
-            'name' => $newData['name'],
-            'description' => $newData['description'],
+            'date_starts' => $newData['name'],
+            'date_ends' => $newData['date_ends'],
+            'product_id' => $newData['product_id']
         ]);
     }
 
     public function it_belongs_to_a_user()
     {
-        $product = ProductTestFactory::create();
-        $this->assertInstanceOf(User::class, $product->user);
+        $appointment = AppointmentTestFactory::create();
+        $this->assertInstanceOf(User::class, $appointment->user);
     }
 }

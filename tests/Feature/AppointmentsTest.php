@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Facades\Tests\Setup\AppointmentTestFactory;
@@ -14,12 +15,26 @@ Class AppointmentsTest extends TestCase {
     use WithFaker, RefreshDatabase;
 
     /** @test */
-    public function a_appointment_can_be_viewed_by_anyone()
+    public function an_appointment_can_only_be_viewed_by_an_authorized_user()
     {
-        $appointment = AppointmentTestFactory::create();
+
+        $owner = UserTestFactory::create();
+        $notOwner = UserTestFactory::create();
+        $appointment = AppointmentTestFactory::create(['user_id' => $owner->id]);
+
+        // Guests should be asked to login
         $this->get($appointment->path())
-            ->assertSee($appointment->description)
-            ->assertSee($appointment->name);
+            ->assertRedirect('/login');
+
+        // Non-owners should be given a 403
+        $this->actingAs($notOwner)
+            ->get($appointment->path())
+            ->assertSee(403);
+        $this->withoutExceptionHandling();
+        // The owner should receive a 200
+        $this->actingAs($owner)
+            ->get($appointment->path())
+            ->assertStatus(200);
     }
 
     /** @test **/
@@ -34,8 +49,7 @@ Class AppointmentsTest extends TestCase {
         $this->actingAs($owner)
             ->followingRedirects()
             ->patch($appointment->path(), $newData)
-            ->assertSee($newData['description'])
-            ->assertSee($newData['name']);
+            ->assertSee($newData['date_starts']->format('H:i'));
 
         // Update request by unauthorized user
         $this->actingAs($notOwner)

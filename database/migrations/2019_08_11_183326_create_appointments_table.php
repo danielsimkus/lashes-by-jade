@@ -17,8 +17,8 @@ class CreateAppointmentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
-            $table->dateTime('date_booking_starts');
-            $table->dateTime('date_booking_ends');
+            $table->dateTime('date_starts');
+            $table->dateTime('date_ends');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

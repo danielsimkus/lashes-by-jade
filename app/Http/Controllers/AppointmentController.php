@@ -6,11 +6,12 @@ use App\Appointment;
 use App\User;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class AppointmentController extends Controller
 {
     protected $validationRules = [
-        'name' => 'required|max:75',
-        'description' => 'required|max:255'
+        'date_starts' => 'required',
+        'date_ends' => 'required',
+        'product_id' => 'required'
     ];
     /**
      * Display a listing of the resource.
@@ -50,21 +51,22 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Appointment  $product
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $product)
+    public function show(Appointment $appointment)
     {
-        return view('product.show', compact('product'));
+        $this->authorize('view', $appointment);
+        return view('appointment.show', compact('appointment'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Appointment  $product
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointment $product)
+    public function edit(Appointment $appointment)
     {
         //
     }
@@ -73,23 +75,23 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Appointment  $product
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appointment $product)
+    public function update(Request $request, Appointment $appointment)
     {
-        $this->authorize('update', $product);
-        $product->update($request->validate($this->validationRules));
-        return redirect($product->path());
+        $this->authorize('update', $appointment);
+        $appointment->update($request->validate($this->validationRules));
+        return redirect($appointment->path());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Appointment  $product
+     * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appointment $product)
+    public function destroy(Appointment $appointment)
     {
         //
     }
