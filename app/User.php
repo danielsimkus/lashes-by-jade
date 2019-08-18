@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Appointment::class);
     }
+
+    public function upcomingAppointments()
+    {
+        return $this->hasMany(Appointment::class)->upcoming();
+    }
 }

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\User;
+use Facades\Tests\Setup\ProductTestFactory;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Facades\Tests\Setup\AppointmentTestFactory;
@@ -17,7 +18,6 @@ Class AppointmentsTest extends TestCase {
     /** @test */
     public function an_appointment_can_only_be_viewed_by_an_authorized_user()
     {
-
         $owner = UserTestFactory::create();
         $notOwner = UserTestFactory::create();
         $appointment = AppointmentTestFactory::create(['user_id' => $owner->id]);
@@ -72,6 +72,21 @@ Class AppointmentsTest extends TestCase {
     public function a_guest_cannot_create_a_appointment()
     {
         $this->post(route('appointments.store'), AppointmentTestFactory::raw(['user_id' => null]))
-        ->assertStatus(403);
+        ->assertStatus(302)
+        ->assertRedirect('/login');
+    }
+
+    /** @test **/
+    public function a_user_can_see_their_appointment_index()
+    {
+        $user = UserTestFactory::create();
+        $appointment1 = AppointmentTestFactory::create(['user_id' => $user]);
+        $appointment2 = AppointmentTestFactory::create(['user_id' => $user]);
+        $this
+            ->actingAs($user)
+            ->get(route('appointments.index'))
+            ->assertSee($appointment1->time())
+            ->assertSee($appointment2->time());
+
     }
 }

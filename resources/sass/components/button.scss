@@ -1,0 +1,23 @@
+.button {
+  @apply .ml-2 .border-2 .px-5 .py-2 .rounded
+}
+
+.button-main {
+  @apply .button .border-yellow-400 .bg-yellow-400;
+}
+
+.button-hovered {
+  @apply .bg-yellow-200
+}
+
+.button-main:hover {
+  @apply .button-hovered;
+}
+
+.button-less {
+  @apply .button .border-yellow-400 .bg-yellow-100 ;
+}
+
+.button-less:hover {
+  @apply .button-hovered;
+}

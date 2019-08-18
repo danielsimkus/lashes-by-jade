@@ -40,4 +40,9 @@ class Appointment extends Model
     {
         return $this->date_starts->longAbsoluteDiffForHumans($this->date_ends);
     }
+
+    public function scopeUpcoming($query)
+    {
+        return $query->where('date_starts', '>', (new Carbon())->format('Y-m-d H:i:s'));
+    }
 }
