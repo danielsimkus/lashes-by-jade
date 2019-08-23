@@ -10,7 +10,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Facades\Tests\Setup\AppointmentTestFactory;
 
-class AppointmentTest extends TestCase
+class AppointmentUnitTest extends TestCase
 {
     use RefreshDatabase;
 

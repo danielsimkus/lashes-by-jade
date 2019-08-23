@@ -11,7 +11,7 @@ use Facades\Tests\Setup\UserTestFactory;
 use Tests\TestCase;
 use Throwable;
 
-Class AppointmentsTest extends TestCase {
+Class AppointmentFeatureTest extends TestCase {
 
     use WithFaker, RefreshDatabase;
 
@@ -62,7 +62,6 @@ Class AppointmentsTest extends TestCase {
     /** @test */
     public function a_user_can_create_a_appointment()
     {
-        $this->withoutExceptionHandling();
         $this->actingAs($user = UserTestFactory::create())
             ->post(route('appointments.store'), AppointmentTestFactory::raw(['user_id' => null]))
             ->assertRedirect();
